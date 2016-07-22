@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<title> </title>
+ <!-- esto es un comentario -->
+</head>
+<body>
+{%include 'header.html'%}
+
+{%if messages%}
+{%for msg in messages%}
+<div class="alert alert-warning" role="alert"><center>
+<h4>{{msg.message}}</h4></center></div>
+{%endfor%}
+{%endif%}
+
+{%block contenido%}
+
+{%endblock contenido%}
+
+{%include 'footer.html'%}
+</body>
+</html>

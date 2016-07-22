@@ -1,0 +1,11 @@
+{% extends 'master.html' %}
+	{% block contenido %}
+<center> <H3 class="alert alert-success">MODIFICAR MATERIA</H3></center>
+
+<form method="POST"> {% csrf_token %}
+	{{f.as_p}}
+	<input type="submit" value="Modificar"></input>
+</form>
+{% endblock contenido %}
+
+

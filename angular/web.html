@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="angular/angular.min.js"></script>
+  <script src="angular/angular-resource.js"></script>
+	<script src="js/web.js"></script>
+	<meta charset="UTF-8">
+</head>
+<body ng-app="app" background="img/2.jpg">
+<div ng-controller="controlador">
+<div class="container">
+<div class="well well-lg">
+	<center><h2><strong>UNIVERSIDAD NACIONAL DE LOJA </strong></h2>
+	<center><h3><strong>Matriculate¡¡</strong></h3>
+</div><br><br>
+
+
+
+<form ng-show="formulario" ng-submit="Validar()">
+<center><strong>Cedula: </strong><input name="cedula" placeholder="Numero de Cédula" type="Text" ng-model="cedula">
+<input class="btn btn-danger" type="submit" value="Buscar"></center>
+</form>
+
+
+
+<div ng-show="materia">
+<div><center><h3 class="alert alert-success">CURSOS DISPONIBLES</h3></center></div> <br>
+<table class="table table-striped">
+	<tr>
+	<td><strong>Nombre</strong></td>
+	<td><strong>Cupos Disponibles</strong></td>
+	<td></td>
+	</tr>
+	<tr ng-repeat="c in listamateria">
+		<td class="success">{{c.nombre}}</td>
+		<td class="success">{{c.cupo}}</td>
+		<td class="danger"><button  ng-click="matriculado()"><strong>Matricularse</strong></button></td>
+	</tr>
+
+
+</table>
+
+<div ng-show="msg"><center><h3 class="alert alert-info">{{mensaje}}</h3></center></div>
+</div><br><br>
+<div class="well well-lg">
+		<p class="text-center"> 
+			</br>	
+			Quinto"A" 
+		</p>
+	</div>
+</div>
+	
+</div>
+</body>
+</html>

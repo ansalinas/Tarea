@@ -1,0 +1,8 @@
+{% extends 'master.html' %}
+	{% block contenido %}
+<center><H3 class="alert alert-success">INGRESE SUS DATOS</H3></center>
+<form method="post" action="" > {% csrf_token %}
+	{{f.as_p}}
+	<input type="submit" value="Aceptar"></input>
+</form>
+{% endblock contenido %}

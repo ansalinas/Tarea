@@ -1,0 +1,71 @@
+{% extends 'master.html' %}
+	{% block contenido %}
+		{% if estudiante %}
+					<div class="container">
+					<center> <H3 class="alert alert-success">LISTA DE ESTUDIANTES </H3></center>
+					
+					<table class="table table-hover">
+					<tr>
+						<td><label>Cedula</label></td>
+						<td><label>Nombres</label></td>
+						<td><label>Apellidos</label></td>
+						<td><label>Correo</label></td>
+						<td><label>OPCIONES</label></td>
+						
+					</tr>
+
+					{% for c in estudiante %}
+					<tr>
+						<td>{{c.cedula}}</td>
+						<td>{{c.nombre}}</td>
+						<td>{{c.apellido}}</td>
+						<td>{{c.correo}}</td>
+						<td><a class="glyphicon glyphicon-pencil" title="Modificar" href="ModifEstudiante?cedula={{c.cedula}}"></a> 
+						| <a class="glyphicon glyphicon-trash" href="EliminarEstudiante?cedula={{c.cedula}}" title="Eliminar"></a></td>
+						
+					</tr>
+					{% endfor %}
+					</table>
+					{% else %}
+					
+
+					<div class="alert alert-success"><center> SIN REGISTRO</center></div>
+					{% endif %}
+					<br>
+					<a href="crear"><center><button class="btn btn-primary" title="Agregar Estudiante" >Nuevo Estudiante</button></center></a><br>
+
+					
+
+					{% if materia %}
+					<center> <H3 class="alert alert-success">MATERIAS DISPONIBLES</H3></center>
+					
+					<table class="table table-hover">
+					<tr>
+						
+						<td><label>Nombres</label></td>
+						<td><label>Cupos</label></td>
+						<td><label>OPCIONES</label></td>
+						
+					</tr>
+
+					{% for c in materia %}
+					<tr>
+						
+						<td class="active">{{c.nombre}}</td>
+						<td>{{c.cupo}}</td>
+						<td><a class="glyphicon glyphicon-pencil" href="ModificarMateria?nombre={{c.nombre}}" title="Modificar"></a> | <a class="glyphicon glyphicon-trash" href="EliminarMateria?nombre={{c.nombre}}" title="Eliminar"></a></td>
+						
+					
+					</tr>
+					{% endfor %}
+					</table>
+					{% else %}
+					
+
+					<div class="alert alert-success"><center> NO HAY MATERIAS </center></div>
+					{% endif %}
+
+			<br>
+			<a href="crearMateria"><center><button class="btn btn-primary" title="Agregar Materia" >Nuevo Materia</button></center></a><br><br>
+			</div>
+	{% endblock contenido %}
